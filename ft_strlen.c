@@ -6,13 +6,13 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 12:13:53 by gunkim            #+#    #+#             */
-/*   Updated: 2020/09/28 12:20:27 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/08 17:10:52 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	len;
 

@@ -6,13 +6,13 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 12:21:06 by gunkim            #+#    #+#             */
-/*   Updated: 2020/09/30 23:48:43 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/08 17:11:01 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memset(void *b, int c, size_t len)
+void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	i;
 
