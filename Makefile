@@ -6,7 +6,7 @@
 #    By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 17:40:25 by gunkim            #+#    #+#              #
-#    Updated: 2020/10/09 19:04:35 by gunkim           ###   ########.fr        #
+#    Updated: 2020/10/09 20:26:44 by gunkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar
 ARFLAGS = -cr
 
-SRCS = ft_memset.c ft_bzero.c ft_strlen.c
+SRCS = ft_memset.c ft_bzero.c ft_strlen.c ft_memcpy.c ft_memccpy.c
 OBJS = $(SRCS:.c=.o)
 
 NAME = libft.a

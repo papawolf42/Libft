@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 16:32:09 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/09 19:50:48 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/09 20:11:07 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 void	*ft_memset(void *dest, int c, size_t len);
 void	ft_bzero(void *b, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t len);
+void	*ft_memccpy(void *dst, const void *src, int c, size_t len);
 
 size_t	ft_strlen(const char *s);
 
