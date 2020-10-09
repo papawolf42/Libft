@@ -6,7 +6,7 @@
 #    By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 17:40:25 by gunkim            #+#    #+#              #
-#    Updated: 2020/10/09 14:14:49 by gunkim           ###   ########.fr        #
+#    Updated: 2020/10/09 19:04:35 by gunkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,12 @@ ARFLAGS = -cr
 SRCS = ft_memset.c ft_bzero.c ft_strlen.c
 OBJS = $(SRCS:.c=.o)
 
-TARGET = libft.a
+NAME = libft.a
 
-all : $(TARGET)
+all : $(NAME)
 
-$(TARGET) : $(OBJS)
-	$(AR) $(ARFLAGS) $(TARGET) $(OBJS)
+$(NAME) : $(OBJS)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
 %.o : %.c libft.h
 	$(CC) $(CFLAGS) -c $<
@@ -33,7 +33,7 @@ clean :
 	rm -f $(OBJS)
 
 fclean : clean
-	rm -f $(TARGET)
+	rm -f $(NAME)
 
 re : fclean all
 
