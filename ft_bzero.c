@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 21:52:11 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/09 18:39:58 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/09 23:11:13 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_bzero(void *b, size_t len)
 	char	*bowl;
 	size_t	i;
 
-	if (b == 0)
-		return ;
 	bowl = (char *)b;
 	i = 0;
 	while (i < len)
