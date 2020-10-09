@@ -6,20 +6,20 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 21:52:11 by gunkim            #+#    #+#             */
-/*   Updated: 2020/09/29 22:33:54 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/09 17:36:49 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	bzero(void *s, size_t n)
+void	bzero(void *b, size_t len)
 {
 	char	*bowl;
 	size_t	i;
 
-	bowl = (char *)s;
+	bowl = (char *)b;
 	i = 0;
-	while (i < n)
+	while (i < len)
 	{
 		bowl[i] = 0;
 		i++;
