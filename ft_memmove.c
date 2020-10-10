@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/08 16:32:09 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/11 00:04:09 by gunkim           ###   ########.fr       */
+/*   Created: 2020/10/10 01:10:27 by gunkim            #+#    #+#             */
+/*   Updated: 2020/10/11 02:08:13 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stddef.h>
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	char	*c_dst;
+	char	*c_src;
 
-void	*ft_memset(void *dest, int c, size_t len);
-void	ft_bzero(void *b, size_t len);
-void	*ft_memcpy(void *dst, const void *src, size_t len);
-void	*ft_memccpy(void *dst, const void *src, int c, size_t len);
-void	*ft_memmove(void *dst, const void *src, size_t len);
-
-size_t	ft_strlen(const char *s);
-
-#endif
+	c_dst = (char *)dst;
+	c_src = (char *)src;
+	if (c_dst < c_src)
+		return (ft_memcpy(dst, src, len));
+	else if (c_dst > c_src)
+	{
+		while (len > 0)
+		{
+			c_dst[len - 1] = c_src[len - 1];
+			len--;
+		}
+	}
+	return (dst);
+}
