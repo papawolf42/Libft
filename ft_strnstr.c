@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 18:24:04 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/13 19:24:30 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/13 19:29:22 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	{
 		j = 0;
 		while (big[i + j] == little[j] && big[i + j]
-`				&& little[j] && (i + j < len))
+				&& little[j] && (i + j < len))
 			j++;
 		if (!little[j])
 			return ((char *)(big + i));
