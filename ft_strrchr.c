@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 02:22:10 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/13 18:02:20 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/13 19:23:11 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strrchr(const char *s, int c)
 	i = len_s;
 	while (i >= 0)
 	{
-		if(s[i] == (char)c)
+		if (s[i] == (char)c)
 		{
 			bool_find = 1;
 			break ;
