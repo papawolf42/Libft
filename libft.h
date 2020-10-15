@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 16:32:09 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/14 23:27:34 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/15 23:20:20 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stddef.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <limits.h>
 
 void	*ft_memset(void *dest, int c, size_t len);
