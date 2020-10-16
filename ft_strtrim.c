@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 07:01:31 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/15 23:36:47 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/16 21:11:49 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static int		ft_isset(char const c, char const *set)
 	return (0);
 }
 
-static int		ft_pass_set(char const *s1, char const *set, size_t direction, size_t strlen)
+static int		ft_pass_set(char const *s1, char const *set,
+		size_t direction, size_t strlen)
 {
 	size_t	i;
 
@@ -31,7 +32,7 @@ static int		ft_pass_set(char const *s1, char const *set, size_t direction, size_
 	while (i < strlen)
 	{
 		if (!ft_isset(*s1, set))
-			break;
+			break ;
 		i++;
 		s1 += direction;
 	}

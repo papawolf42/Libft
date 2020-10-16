@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 19:20:15 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/14 20:15:31 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/16 21:13:21 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		ft_atoi(const char *nptr)
 {
 	unsigned long	result;
-	int					sign;
+	int				sign;
 
 	result = 0;
 	sign = 1;
