@@ -6,7 +6,7 @@
 #    By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 17:40:25 by gunkim            #+#    #+#              #
-#    Updated: 2020/10/18 06:12:01 by gunkim           ###   ########.fr        #
+#    Updated: 2020/10/18 06:13:46 by gunkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ bonus : $(OBJS_B)
 	$(CC) $(CFLAGS) -c $<
 
 clean :
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(OBJS_B)
 
 fclean : clean
 	rm -f $(NAME)
