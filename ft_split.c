@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 21:06:50 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/17 08:39:30 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/17 10:52:16 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static char		**ft_get_num_blocks(char const *s, char c)
 		while (s[i] != c && s[i])
 			i++;
 	}
-	strs = (char **)calloc((num + 1), sizeof(char *));
+	strs = (char **)malloc(sizeof(char *) * (num + 1));
 	if (!strs)
 		return (NULL);
 	strs[num] = NULL;
