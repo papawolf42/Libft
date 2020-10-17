@@ -6,13 +6,14 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 16:32:09 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/15 23:20:20 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/17 13:04:53 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <unistd.h>
 # include <stddef.h>
 # include <stdlib.h>
 # include <stdio.h>
