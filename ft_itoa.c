@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 09:55:05 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/17 10:50:22 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/18 19:26:47 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char		*ft_itoa(int n)
 	int				sign;
 	int				size;
 	unsigned int	temp;
-	
+
 	sign = 0;
 	size = ft_getsize(n);
 	temp = n;
