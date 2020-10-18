@@ -6,13 +6,13 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 19:12:19 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/17 19:15:13 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/18 19:06:37 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	if (!s)
 		return ;
