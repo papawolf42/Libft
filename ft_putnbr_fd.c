@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 20:18:53 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/17 21:44:31 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/18 19:05:08 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ static void		ft_putnbr_fd_positive(size_t n, int fd)
 	}
 }
 
-void	ft_putnbr_fd(int n, int fd)
+void			ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	n_positive;
-	
+
 	n_positive = n;
 	if (n == 0)
 		write(fd, "0", 1);
