@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 21:06:50 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/17 10:52:16 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/18 19:25:12 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ static char		**ft_strscpy(char **strs, const char *s, char c)
 		if (s[i] == '\0')
 			break ;
 		if (s[i] != c)
-			start = i;	
+			start = i;
 		while (s[i] != c && s[i])
 			i++;
 		strs[num] = (char *)malloc(sizeof(char) * (i - start + 1));
 		if (!strs[num])
-			return (NULL);;
+			return (NULL);
 		ft_strlcpy(strs[num], s + start, i - start + 1);
 		num++;
 	}
