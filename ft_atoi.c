@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 19:20:15 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/16 21:13:21 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/18 23:53:25 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		ft_atoi(const char *nptr)
 {
-	unsigned long	result;
-	int				sign;
+	unsigned long long	result;
+	int					sign;
 
 	result = 0;
 	sign = 1;
@@ -30,9 +30,9 @@ int		ft_atoi(const char *nptr)
 		result = result * 10 + *nptr - '0';
 		nptr++;
 	}
-	if (result >= (unsigned long)LONG_MAX && sign == 1)
+	if (result >= (unsigned long long)LONG_MAX && sign == 1)
 		return (-1);
-	else if (result >= (unsigned long)LONG_MIN && sign == -1)
+	else if (result >= (unsigned long long)LONG_MIN && sign == -1)
 		return (0);
 	return (sign * result);
 }
