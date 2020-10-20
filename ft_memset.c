@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 12:21:06 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/09 17:29:44 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/20 13:27:34 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,10 @@
 
 void	*ft_memset(void *dest, int c, size_t len)
 {
-	unsigned char	*temp;
-	size_t			i;
+	unsigned char	*ptr;
 
-	temp = dest;
-	i = 0;
-	while (i < len)
-	{
-		temp[i] = (unsigned char)c;
-		i++;
-	}
-	return (temp);
+	ptr = dest;
+	while (len--)
+		ptr[len] = c;
+	return (ptr);
 }
