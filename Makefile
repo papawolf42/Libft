@@ -6,7 +6,7 @@
 #    By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 17:40:25 by gunkim            #+#    #+#              #
-#    Updated: 2020/10/20 10:48:06 by gunkim           ###   ########.fr        #
+#    Updated: 2020/10/20 13:16:10 by gunkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,16 +65,15 @@ OBJS_B = $(SRCS_B:.c=.o)
 
 NAME = libft.a
 
-all : $(NAME)
+.PHONY: all clean fclean re bonus
+
+%.o : %.c libft.h
+	$(CC) $(CFLAGS) -c $<
 
 $(NAME) : $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
-bonus : $(OBJS_B)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS_B)
-
-%.o : %.c libft.h
-	$(CC) $(CFLAGS) -c $<
+all : $(NAME)
 
 clean :
 	rm -f $(OBJS) $(OBJS_B)
@@ -84,4 +83,5 @@ fclean : clean
 
 re : fclean all
 
-.PHONY: all clean fclean re bonus
+bonus : $(OBJS_B)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS_B)
