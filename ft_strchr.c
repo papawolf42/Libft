@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 01:50:58 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/13 19:22:59 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/21 11:54:15 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,18 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t		len_s;
-	size_t		i;
-	size_t		bool_find;
+	char		catch;
+	size_t		len;
 
-	bool_find = 0;
-	len_s = ft_strlen(s);
-	i = 0;
-	while (i < len_s + 1)
+	if (c == '\0')
+		return ((char *)s + ft_strlen(s));
+	catch = c;
+	len = ft_strlen(s);
+	while (len--)
 	{
-		if (s[i] == (char)c)
-		{
-			bool_find = 1;
-			break ;
-		}
-		i++;
+		if (*s == catch)
+			return ((char *)s);
+		s++;
 	}
-	if (bool_find == 0)
-		return (NULL);
-	return ((char *)s + i);
+	return (0);
 }
