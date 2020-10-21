@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 22:46:39 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/14 22:57:24 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/21 09:32:04 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	*ft_calloc(size_t number, size_t size)
 {
-	void	*pointer;
+	void	*ptr;
 
-	if (!(pointer = malloc(number * size)))
+	if (!(ptr = malloc(number * size)))
 		return (NULL);
-	ft_memset(pointer, 0, number * size);
-	return (pointer);
+	ft_bzero(ptr, number * size);
+	return (ptr);
 }
