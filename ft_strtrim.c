@@ -6,13 +6,13 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 07:01:31 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/16 21:11:49 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/22 11:19:45 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_isset(char const c, char const *set)
+static size_t	ft_isset(char const c, char const *set)
 {
 	while (*set)
 	{
@@ -23,13 +23,13 @@ static int		ft_isset(char const c, char const *set)
 	return (0);
 }
 
-static int		ft_pass_set(char const *s1, char const *set,
+static size_t	ft_pass_set(char const *s1, char const *set,
 		size_t direction, size_t strlen)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < strlen)
+	while (strlen--)
 	{
 		if (!ft_isset(*s1, set))
 			break ;
@@ -44,7 +44,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 	size_t	strlen;
 	size_t	start;
 	size_t	end;
-	char	*str_trimed;
+	char	*trim;
 
 	if (!s1 || !set)
 		return (NULL);
@@ -53,8 +53,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 	end = strlen - ft_pass_set(s1 + strlen - 1, set, -1, strlen);
 	if (start > end)
 		start = end;
-	if (!(str_trimed = (char *)malloc(sizeof(char) * (end - start + 1))))
+	if (!(trim = (char *)malloc(sizeof(char) * (end - start + 1))))
 		return (NULL);
-	ft_strlcpy(str_trimed, s1 + start, end - start + 1);
-	return (str_trimed);
+	ft_strlcpy(trim, s1 + start, end - start + 1);
+	return (trim);
 }
