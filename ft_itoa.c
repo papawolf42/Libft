@@ -6,54 +6,56 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 09:55:05 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/18 19:26:47 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/22 14:10:29 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_getsize(int n)
+static unsigned int	ft_preprocess(int n, int *sign, int *digit)
 {
-	int		sign;
-	int		digit;
+	unsigned int	nbr;
+	unsigned long	base_ten;
 
+	*sign = 0;
+	*digit = 0;
+	nbr = n;
+	base_ten = 1;
 	if (n == 0)
-		return (1);
-	sign = 0;
-	if (n < 0)
-		sign = 1;
-	digit = 0;
-	while (n)
 	{
-		n /= 10;
-		digit++;
+		*digit = 1;
+		return (nbr);
 	}
-	return (sign + digit);
+	if (n < 0)
+	{
+		*sign = 1;
+		nbr = n * -1;
+	}
+	while (nbr >= base_ten)
+	{
+		base_ten *= 10;
+		(*digit)++;
+	}
+	return (nbr);
 }
 
-char		*ft_itoa(int n)
+char				*ft_itoa(int n)
 {
 	char			*str;
 	int				sign;
-	int				size;
-	unsigned int	temp;
+	int				digit;
+	unsigned int	nbr;
 
-	sign = 0;
-	size = ft_getsize(n);
-	temp = n;
-	if (!(str = (char *)ft_calloc(size + 1, sizeof(char))))
+	nbr = ft_preprocess(n, &sign, &digit);
+	if (!(str = (char *)malloc(sizeof(char) * (sign + digit + 1))))
 		return (NULL);
-	if (n < 0)
+	str[sign + digit] = '\0';
+	while (digit--)
 	{
+		str[sign + digit] = nbr % 10 + '0';
+		nbr /= 10;
+	}
+	if (sign == 1)
 		str[0] = '-';
-		sign = 1;
-		temp *= -1;
-	}
-	while (sign < size)
-	{
-		str[size - 1] = temp % 10 + '0';
-		temp /= 10;
-		size--;
-	}
 	return (str);
 }
