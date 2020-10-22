@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 18:24:04 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/22 09:43:08 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/22 13:25:18 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			if (!little[j])
 				return ((char *)(big + i));
 		}
-	i++;
+		i++;
 	}
 	return (NULL);
 }
