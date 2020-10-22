@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 23:29:43 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/15 02:56:57 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/22 10:35:52 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t		strlen;
-	char		*substr;
+	char		*sub;
 
 	if (s == NULL)
 		return (NULL);
@@ -24,8 +24,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		len = 0;
 	else if (strlen <= start + len)
 		len = strlen - start;
-	if (!(substr = (char *)malloc(sizeof(char) * (len + 1))))
+	if (!(sub = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	ft_strlcpy(substr, s + start, len + 1);
-	return (substr);
+	ft_strlcpy(sub, s + start, len + 1);
+	return (sub);
 }
