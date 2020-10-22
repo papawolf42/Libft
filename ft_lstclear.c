@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 08:46:44 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/18 11:34:33 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/22 14:59:49 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
+	t_list	*next;
+
 	if (*lst == NULL)
 		return ;
-	if ((*lst)->next)
-		ft_lstclear(&((*lst)->next), del);
-	del((*lst)->content);
-	free(*lst);
+	while (*lst)
+	{
+		next = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = next;
+	}
 	*lst = NULL;
 }
