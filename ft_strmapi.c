@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 10:58:02 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/17 11:15:36 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/22 14:18:49 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	str[len] = '\0';
 	i = 0;
-	while (s[i])
+	while (len--)
 	{
 		str[i] = f(i, s[i]);
 		i++;
