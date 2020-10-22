@@ -6,13 +6,13 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 19:19:10 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/21 11:34:27 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/22 10:45:14 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t		s;
 	size_t		d;
