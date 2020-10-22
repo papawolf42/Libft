@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 11:50:04 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/18 19:24:01 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/22 15:09:12 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,24 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*lst_first;
-	t_list	*lst_map;
-	t_list	*lst_new;
+	t_list	*first;
+	t_list	*new;
 
 	if (!lst)
 		return (NULL);
-	if (!(lst_new = ft_lstnew(f(lst->content))))
+	if (!(first = ft_lstnew(f(lst->content))))
 		return (NULL);
-	lst_first = lst_new;
-	lst_map = lst_first;
+	new = first;
 	lst = lst->next;
 	while (lst)
 	{
-		if (!(lst_new = ft_lstnew(f(lst->content))))
+		if (!(new->next = ft_lstnew(f(lst->content))))
 		{
-			ft_lstclear(&lst_first, del);
+			ft_lstclear(&first, del);
 			return (NULL);
 		}
-		lst_map->next = lst_new;
-		lst_map = lst_map->next;
 		lst = lst->next;
+		new = new->next;
 	}
-	return (lst_first);
+	return (first);
 }
