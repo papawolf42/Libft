@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 03:35:41 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/15 04:03:20 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/22 10:43:51 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	len1;
-	size_t	len2;
-	char	*strjoin;
+	char	*join;
+	size_t	size;
 
 	if (!s1 || !s2)
 		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	if (!(strjoin = (char *)malloc(sizeof(char) * (len1 + len2 + 1))))
+	size = ft_strlen(s1) + ft_strlen(s2) + 1;
+	if (!(join = (char *)malloc(sizeof(char) * size)))
 		return (NULL);
-	strjoin[0] = 0;
-	ft_strlcpy(strjoin, s1, len1 + 1);
-	ft_strlcpy(strjoin + len1, s2, len2 + 1);
-	return (strjoin);
+	join[0] = 0;
+	ft_strlcat(join, s1, size);
+	ft_strlcat(join, s2, size);
+	return (join);
 }
