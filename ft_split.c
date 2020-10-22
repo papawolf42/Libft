@@ -6,7 +6,7 @@
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 21:06:50 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/22 11:36:02 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/10/23 07:40:07 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,15 @@ static char		**ft_get_strs(char const *s, char c)
 		while (*s != c && *s)
 			s++;
 	}
+	if (c == '\0')
+		num++;
 	strs = (char **)ft_calloc((num + 1), sizeof(char *));
 	if (!strs)
 		return (NULL);
 	return (strs);
 }
 
-void			ft_free_all(char **strs)
+static void		ft_free_all(char **strs)
 {
 	while (*strs)
 	{
