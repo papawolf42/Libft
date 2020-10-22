@@ -2,51 +2,75 @@
 
 > Your very first own library
 
-42에서는 필요한 라이브러리를 자신이 직접 구현하여 사용합니다.
+in 42, we should implement our own library for use throughout following projects.
 
-프로젝트를 진행하면서의 기록.
-
-
-
-## Test program
-
-[Libftest](https://github.com/jtoty/Libftest)
-
-[libft_war-machine](https://github.com/ska42/libft-war-machine)
-
-[libft-unit-test](https://github.com/alelievr/libft-unit-test)
+Progress record of the this project
 
 
 
-## 학습순서
+## 🔗 List of Functions
 
-1. man page 읽고 이해. ([FreeBSD manual](https://www.freebsd.org/cgi/man.cgi)을 참고함)
-2. google, 이해가 어려우면 한글자료도 검색.
-3. 그럼에도 막히는 부분이 있다면,
-   1. Slack, Discord, Stackoverflow 등등 검색.
-   2. Kakaotalk, 동료에게 질문.
-4. 간단히 코드 작성 및 수정.
-5. test case를 구상, Undefined Behavior를 어떻게 처리할 것인지 고민.
-6. 3가지 테스트기 실행.
-   - 실패시 다시 4번으로.
-7. 느낀 점, 배운 것 기록.
+#### Part. 1
 
+ [`memset`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_memset.c) [`bzero`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_bzero.c) [`memcpy`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_memcpy.c) [`memccpy`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_memccpy.c) [`memmove`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_memmove.c) [`memchr`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_memchr.c) [`memcmp`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_memcmp.c) [`strlen`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_strlen.c) [`strlcpy`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_strlcpy.c) [`strlcat`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_strlcat.c) [`strchr`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_strchr.c) [`strrchr`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_strrchr.c) [`strnstr`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_strnstr.c) [`strncmp`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_strncmp.c) [`atoi`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_atoi.c) [`isalpha`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_isalpha.c) [`isdigit`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_isdigit.c) [`isalnum`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_isalnum.c) [`isascii`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_isascii.c) [`isprint`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_isprint.c) [`toupper`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_toupper.c) [`tolower`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_tolower.c) [`calloc`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_calloc.c) [`strdup`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_strdup.c)
 
+#### Part.2
 
-## Undefined Behavior
+ [`substr`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_substr.c) [`strjoin`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_strjoin.c) [`strtrim`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_strtrim.c) [`split`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_split.c) [`itoa`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_itoa.c) [`strmapi`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_strmapi.c) [`putchar_fd`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_putchar_fd.c) [`putstr_fd`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_putstr_fd.c) [`putendl_fd`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_putendl_fd.c) [`putnbr_fd`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_putnbr_fd.c)
 
-- https://www.secmem.org/blog/2020/01/17/c-c++-and-ub/
-- https://en.wikipedia.org/wiki/Undefined_behavior
-- https://raphlinus.github.io/programming/rust/2018/08/17/undefined-behavior.html
+#### Bonus
+
+ [`lstnew`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_lstnew.c) [`lstadd_front`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_lstadd_front.c) [`lstsize`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_lstsize.c) [`lstlast`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_lstlast.c) [`lstadd_back`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_lstadd_back.c) [`lstdelone`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_lstdelone.c) [`lstclear`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_lstclear.c) [`lstiter`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_lstiter.c) [`lstmap`](https://github.com/papawolf90/42Seoul-42Cursus/blob/master/00_Libft/ft_lstmap.c)
 
 
 
-## Makefile
+## 🧪 Test program
 
-- [모두의 코드](https://modoocode.com/311)
-- [GNU Make manual](https://www.gnu.org/software/make/manual/html_node/index.html#SEC_Contents)
+[`Libftest`](https://github.com/jtoty/Libftest) by jtoty
+
+[`libft_war-machine`](https://github.com/ska42/libft-war-machine)<sub id="a1">[[1]](#f1)</sub> by ska42
+
+[`libft-unit-test`](https://github.com/alelievr/libft-unit-test) by alelievr
+
+
+
+## 📜 Solving process
+
+1. Read man page first. ([`FreeBSD manual`](https://www.freebsd.org/cgi/man.cgi))
+2. Googling, including koeran.
+3. See Slack, Discord, Stackoverflow.
+4. Ask peers on kakaotalk.
+5. Scratch coding simply
+6. Conceive a test case, ponder how to deal with Undefined Behavior
+7. Run 3 test programs
+   - If it fail, go back to 5.
+8. Record what felt and learned.
+
+
+
+## References
+
+### 👿 Undefined Behavior
+
+- [C/C++의 undefined behavior](https://www.secmem.org/blog/2020/01/17/c-c++-and-ub/) by evenharder
+- [With Undefined Behavior, Anything is Possible](https://raphlinus.github.io/programming/rust/2018/08/17/undefined-behavior.html) by Raph Levien
+- [Undefined behavior](https://en.wikipedia.org/wiki/Undefined_behavior) from wikipedia
+
+***
+
+
+
+### 📂 Makefile
+
+- [Make 사용 가이드](https://modoocode.com/311) from 모두의 코드
+- [Make manual](https://www.gnu.org/software/make/manual/html_node/index.html#SEC_Contents) from GNU
   - [Variable](https://www.gnu.org/software/make/manual/html_node/Variables-Simplify.html#Variables-Simplify)
   - [Implicit Rules](https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables)
   - [Automatic Variables](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables)
   - [Patterns Match](https://www.gnu.org/software/make/manual/html_node/Pattern-Match.html#Pattern-Match)
   - [Archive](https://www.gnu.org/software/make/manual/html_node/Archives.html#Archives)
+
+***
+
+<sub><b id="f1">[[1]](#a1)</b> War Machine is a forked version of Libftest, differ test cases slightly, can not test the bonus function properly on current version(2020.10).</sub>
+
