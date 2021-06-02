@@ -3,20 +3,52 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+         #
+#    By: gunkim <gunkim@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 17:40:25 by gunkim            #+#    #+#              #
-#    Updated: 2020/10/20 13:16:10 by gunkim           ###   ########.fr        #
+#    Updated: 2021/06/02 23:42:36 by gunkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+#	libft.a - Makefile
+#	----------------------------------------
+#	Refer to : http://github.com/google/honggfuzz/blob/master/Makefile
 
-AR = ar
-ARFLAGS = -cr
+# =========================
+# what we want to make
+# =========================
 
-SRCS = ft_memset.c \
+NAME    := libft.a
+
+# =========================
+# implicit rule
+# =========================
+
+CC      := gcc
+CFLAGS  := 
+CFLAGS  += -Wall
+CFLAGS  += -Wextra
+CFLAGS  += -Werror
+
+AR      := ar
+ARFLAGS := -rcs
+
+RFLAGS  := rm -rf
+
+# =========================
+# path
+# =========================
+
+DIR_INC := include
+DIR_OBJ := obj
+DIR_SRC := src
+
+# =========================
+# source files
+# =========================
+
+SRCS_MANDATORY := \
+	ft_memset.c \
 	ft_bzero.c \
 	ft_memcpy.c \
 	ft_memccpy.c \
@@ -50,7 +82,9 @@ SRCS = ft_memset.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
-SRCS_B = ft_lstnew.c \
+
+SRCS_BONUS := \
+	ft_lstnew.c \
 	ft_lstadd_front.c \
 	ft_lstsize.c \
 	ft_lstlast.c \
@@ -60,28 +94,126 @@ SRCS_B = ft_lstnew.c \
 	ft_lstiter.c \
 	ft_lstmap.c
 
-OBJS = $(SRCS:.c=.o)
-OBJS_B = $(SRCS_B:.c=.o)
+SRCS := \
+	$(SRCS_MANDATORY) \
+	$(SRCS_BONUS) \
 
-NAME = libft.a
+# =========================
+# VPATH
+# =========================
 
-.PHONY: all clean fclean re bonus
+VPATH = $(DIR_SRC)
 
-%.o : %.c libft.h
-	$(CC) $(CFLAGS) -c $<
+# =========================
+# object files
+# =========================
 
-$(NAME) : $(OBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+OBJS := $(patsubst %.o, $(DIR_OBJ)/%.o, $(SRCS:.c=.o))
+
+# =========================
+# dependency files
+# =========================
+
+DEPS := $(SRCS:.c=.d)
+
+# =========================
+# ANSI/VT100
+# =========================
+
+LF      := \n
+CR      := \r
+ESC     := \e
+
+ER      := $(ESC)[1K
+CRLF    := $(CR)$(LF)
+ERCR    := $(ER)$(CR)
+
+# =========================
+# .PHONY
+# =========================
+
+.PHONY: all clean fclean re
 
 all : $(NAME)
 
-clean :
-	rm -f $(OBJS) $(OBJS_B)
+clean : dclean
+	@$(RFLAGS) $(OBJS)
+	@printf "[$(NAME)] 🧹 Cleaned object files$(LF)"
 
 fclean : clean
-	rm -f $(NAME)
+	@$(RFLAGS) $(NAME)
+	@printf "[$(NAME)] 🧹 Cleaned library$(LF)"
 
 re : fclean all
 
-bonus : $(OBJS_B)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS_B)
+.PHONY: depend dclean
+
+depend : $(DEPS)
+
+dclean :
+	@$(RFLAGS) depend_file
+	@printf "[$(NAME)] 🧹 Cleaned dependency files$(LF)"
+
+%.d : %.c
+	@$(CC) -MM $< -I$(DIR_INC) | sed 's|^|$(DIR_OBJ)/|' >> depend_file
+
+$(NAME) : $(DIR_OBJ) $(OBJS)
+	@$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	@printf "$(ERCR)[$(NAME)] ✔️  Compiled done\n"
+
+$(DIR_OBJ) :
+	@mkdir -p $(DIR_OBJ)
+	@printf "[$(NAME)] 📁 Created directory $(DIR_OBJ) $(LF)"
+
+$(DIR_OBJ)/%.o : %.c
+	@$(CC) -g $(CFLAGS) -c $< -o $@ -I $(DIR_INC)
+	@printf "$(ERCR)[$(NAME)] 🔧 Compiling object file $@"
+ 
+.SUFFIXES:
+
+# DO NOT DELETE
+
+obj/ft_memset.o: src/ft_memset.c include/libft.h
+obj/ft_bzero.o: src/ft_bzero.c include/libft.h
+obj/ft_memcpy.o: src/ft_memcpy.c include/libft.h
+obj/ft_memccpy.o: src/ft_memccpy.c include/libft.h
+obj/ft_memmove.o: src/ft_memmove.c include/libft.h
+obj/ft_memchr.o: src/ft_memchr.c include/libft.h
+obj/ft_memcmp.o: src/ft_memcmp.c include/libft.h
+obj/ft_strlen.o: src/ft_strlen.c include/libft.h
+obj/ft_strlcpy.o: src/ft_strlcpy.c include/libft.h
+obj/ft_strlcat.o: src/ft_strlcat.c include/libft.h
+obj/ft_strchr.o: src/ft_strchr.c include/libft.h
+obj/ft_strrchr.o: src/ft_strrchr.c include/libft.h
+obj/ft_strnstr.o: src/ft_strnstr.c include/libft.h
+obj/ft_strncmp.o: src/ft_strncmp.c include/libft.h
+obj/ft_atoi.o: src/ft_atoi.c include/libft.h
+obj/ft_isalpha.o: src/ft_isalpha.c include/libft.h
+obj/ft_isdigit.o: src/ft_isdigit.c include/libft.h
+obj/ft_isalnum.o: src/ft_isalnum.c include/libft.h
+obj/ft_isascii.o: src/ft_isascii.c include/libft.h
+obj/ft_isprint.o: src/ft_isprint.c include/libft.h
+obj/ft_toupper.o: src/ft_toupper.c include/libft.h
+obj/ft_tolower.o: src/ft_tolower.c include/libft.h
+obj/ft_calloc.o: src/ft_calloc.c include/libft.h
+obj/ft_strdup.o: src/ft_strdup.c include/libft.h
+obj/ft_substr.o: src/ft_substr.c include/libft.h
+obj/ft_strjoin.o: src/ft_strjoin.c include/libft.h
+obj/ft_strtrim.o: src/ft_strtrim.c include/libft.h
+obj/ft_split.o: src/ft_split.c include/libft.h
+obj/ft_itoa.o: src/ft_itoa.c include/libft.h
+obj/ft_strmapi.o: src/ft_strmapi.c include/libft.h
+obj/ft_putchar_fd.o: src/ft_putchar_fd.c include/libft.h
+obj/ft_putstr_fd.o: src/ft_putstr_fd.c include/libft.h
+obj/ft_putendl_fd.o: src/ft_putendl_fd.c include/libft.h
+obj/ft_putnbr_fd.o: src/ft_putnbr_fd.c include/libft.h
+obj/ft_lstnew.o: src/ft_lstnew.c include/libft.h
+obj/ft_lstadd_front.o: src/ft_lstadd_front.c include/libft.h
+obj/ft_lstsize.o: src/ft_lstsize.c include/libft.h
+obj/ft_lstlast.o: src/ft_lstlast.c include/libft.h
+obj/ft_lstadd_back.o: src/ft_lstadd_back.c include/libft.h
+obj/ft_lstdelone.o: src/ft_lstdelone.c include/libft.h
+obj/ft_lstclear.o: src/ft_lstclear.c include/libft.h
+obj/ft_lstiter.o: src/ft_lstiter.c include/libft.h
+obj/ft_lstmap.o: src/ft_lstmap.c include/libft.h
+
