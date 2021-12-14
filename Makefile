@@ -6,7 +6,7 @@
 #    By: gunkim <gunkim@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 17:40:25 by gunkim            #+#    #+#              #
-#    Updated: 2021/06/02 23:42:36 by gunkim           ###   ########.fr        #
+#    Updated: 2021/12/14 18:50:26 by gunkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,9 +94,12 @@ SRCS_BONUS := \
 	ft_lstiter.c \
 	ft_lstmap.c
 
-SRCS := \
-	$(SRCS_MANDATORY) \
-	$(SRCS_BONUS) \
+ifeq ($(BONUS),true)
+	SRCS := $(SRCS_MANDATORY) \
+			$(SRCS_BONUS)
+else
+	SRCS := $(SRCS_MANDATORY)
+endif
 
 # =========================
 # VPATH
@@ -109,6 +112,7 @@ VPATH = $(DIR_SRC)
 # =========================
 
 OBJS := $(patsubst %.o, $(DIR_OBJ)/%.o, $(SRCS:.c=.o))
+OBJS_BONUS := $(patsubst %.o, $(DIR_OBJ)/%.o, $(SRCS_BONUS:.c=.o))
 
 # =========================
 # dependency files
@@ -132,7 +136,7 @@ ERCR    := $(ER)$(CR)
 # .PHONY
 # =========================
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
 
 all : $(NAME)
 
@@ -141,7 +145,7 @@ clean : dclean
 	@printf "[$(NAME)] 🧹 Cleaned object files$(LF)"
 
 fclean : clean
-	@$(RFLAGS) $(NAME)
+	@$(RFLAGS) $(NAME) $(OBJS_BONUS)
 	@printf "[$(NAME)] 🧹 Cleaned library$(LF)"
 
 re : fclean all
@@ -160,6 +164,9 @@ dclean :
 $(NAME) : $(DIR_OBJ) $(OBJS)
 	@$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 	@printf "$(ERCR)[$(NAME)] ✔️  Compiled done\n"
+
+bonus : all
+	@make BONUS=true
 
 $(DIR_OBJ) :
 	@mkdir -p $(DIR_OBJ)
