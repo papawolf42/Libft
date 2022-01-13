@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
+/*   By: gunkim <gunkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 23:08:55 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/14 23:18:42 by gunkim           ###   ########.fr       */
+/*   Updated: 2022/01/14 04:28:31 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strdup(const char *str)
 	len = ft_strlen(str);
 	if (str == NULL)
 		return (NULL);
-	if (!(ptr = (char *)malloc(sizeof(char) * (len + 1))))
+	ptr = (char *)malloc(sizeof(char) * (len + 1));
+	if (ptr == NULL)
 		return (NULL);
 	ft_strlcpy(ptr, str, len + 1);
 	return (ptr);

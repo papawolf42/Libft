@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
+/*   By: gunkim <gunkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 20:18:53 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/22 14:39:48 by gunkim           ###   ########.fr       */
+/*   Updated: 2022/01/14 04:27:38 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		ft_putnbr_fd_positive(size_t n, int fd)
+static void	ft_putnbr_fd_positive(size_t n, int fd)
 {
 	char	c;
 
@@ -24,7 +24,7 @@ static void		ft_putnbr_fd_positive(size_t n, int fd)
 	}
 }
 
-void			ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	nbr;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
+/*   By: gunkim <gunkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 07:01:31 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/22 11:19:45 by gunkim           ###   ########.fr       */
+/*   Updated: 2022/01/14 04:30:15 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static size_t	ft_pass_set(char const *s1, char const *set,
 	return (i);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	strlen;
 	size_t	start;
@@ -53,7 +53,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 	end = strlen - ft_pass_set(s1 + strlen - 1, set, -1, strlen);
 	if (start > end)
 		start = end;
-	if (!(trim = (char *)malloc(sizeof(char) * (end - start + 1))))
+	trim = (char *)malloc(sizeof(char) * (end - start + 1));
+	if (trim == NULL)
 		return (NULL);
 	ft_strlcpy(trim, s1 + start, end - start + 1);
 	return (trim);

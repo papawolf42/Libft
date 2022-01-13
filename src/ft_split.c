@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
+/*   By: gunkim <gunkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 21:06:50 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/23 07:40:07 by gunkim           ###   ########.fr       */
+/*   Updated: 2022/01/14 04:28:11 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		**ft_get_str(char **strs, const char *s, char c)
+static char	**ft_get_str(char **strs, const char *s, char c)
 {
 	size_t		num;
 	const char	*start;
@@ -37,7 +37,7 @@ static char		**ft_get_str(char **strs, const char *s, char c)
 	return (strs);
 }
 
-static char		**ft_get_strs(char const *s, char c)
+static char	**ft_get_strs(char const *s, char c)
 {
 	size_t	num;
 	char	**strs;
@@ -60,7 +60,7 @@ static char		**ft_get_strs(char const *s, char c)
 	return (strs);
 }
 
-static void		ft_free_all(char **strs)
+static void	ft_free_all(char **strs)
 {
 	while (*strs)
 	{
@@ -70,13 +70,14 @@ static void		ft_free_all(char **strs)
 	free(strs);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**strs;
 
 	if (!s)
 		return (NULL);
-	if (!(strs = ft_get_strs(s, c)))
+	strs = ft_get_strs(s, c);
+	if (strs == NULL)
 		return (NULL);
 	if (!(ft_get_str(strs, s, c)))
 	{

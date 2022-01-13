@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
+/*   By: gunkim <gunkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 09:55:05 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/22 14:10:29 by gunkim           ###   ########.fr       */
+/*   Updated: 2022/01/14 04:23:10 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static unsigned int	ft_preprocess(int n, int *sign, int *digit)
 	return (nbr);
 }
 
-char				*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char			*str;
 	int				sign;
@@ -47,7 +47,8 @@ char				*ft_itoa(int n)
 	unsigned int	nbr;
 
 	nbr = ft_preprocess(n, &sign, &digit);
-	if (!(str = (char *)malloc(sizeof(char) * (sign + digit + 1))))
+	str = (char *)malloc(sizeof(char) * (sign + digit + 1));
+	if (str == NULL)
 		return (NULL);
 	str[sign + digit] = '\0';
 	while (digit--)
